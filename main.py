@@ -1,10 +1,18 @@
 # Trabajo Final Integrador - Python
 # Sistema de Gestión de Veterinaria
 # Integrante 1: Menú principal y estructura del programa
-
+import os
+import shutil
 mascotas = []
 turnos = []
 servicios = []
+def limpiar_pantalla():
+    os.system("cls")
+
+def imprimir_centrado(texto):
+    ancho_terminal = shutil.get_terminal_size().columns
+    print(texto.center(ancho_terminal))
+
 def registrar_mascota():
     print("\n[Opción 1] Registrar mascota")
 
@@ -228,22 +236,31 @@ def ver_estadisticas():
 
 
 def mostrar_menu():
-    print("\n===================================")
-    print("      SISTEMA DE VETERINARIA")
-    print("===================================")
-    print("1. Registrar mascota")
-    print("2. Ver mascotas registradas")
-    print("3. Solicitar turno")
-    print("4. Registrar atención médica")
-    print("5. Ver servicios realizados")
-    print("6. Ver estadísticas")
-    print("7. Salir")
-    print("===================================")
+    limpiar_pantalla()
+
+    imprimir_centrado("╔══════════════════════════════════════════════════════════════╗")
+    imprimir_centrado("║                                                              ║")
+    imprimir_centrado("║                     VETERINARIA                             ║")
+    imprimir_centrado("║                                                              ║")
+    imprimir_centrado("║              >>> SISTEMA DE GESTIÓN VETERINARIA <<<         ║")
+    imprimir_centrado("╠══════════════════════════════════════════════════════════════╣")
+    imprimir_centrado("║                         MENÚ PRINCIPAL                      ║")
+    imprimir_centrado("╠══════════════════════════════════════════════════════════════╣")
+    imprimir_centrado("║                                                              ║")
+    imprimir_centrado("║              [1] Registrar mascota                          ║")
+    imprimir_centrado("║              [2] Ver mascotas registradas                   ║")
+    imprimir_centrado("║              [3] Solicitar turno                            ║")
+    imprimir_centrado("║              [4] Registrar atención médica                  ║")
+    imprimir_centrado("║              [5] Ver servicios realizados                   ║")
+    imprimir_centrado("║              [6] Ver estadísticas                           ║")
+    imprimir_centrado("║              [7] Salir                                      ║")
+    imprimir_centrado("║                                                              ║")
+    imprimir_centrado("╚══════════════════════════════════════════════════════════════╝")
 
 
 def pedir_opcion():
     try:
-        opcion = int(input("Ingrese una opción: "))
+        opcion = int(input("Seleccione una opción: "))
         return opcion
     except ValueError:
         print("Error: debe ingresar un número.")
